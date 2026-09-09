@@ -1,0 +1,15 @@
+torch==2.7.1+cu126
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+qwen-asr==0.0.6
+silero-vad==6.2.1
+
+numpy>=2.0
+scipy>=1.14
+soundfile>=0.13
+
+transformers>=4.51.0
+safetensors>=0.5
+huggingface_hub>=0.30
+
+tqdm>=4.66

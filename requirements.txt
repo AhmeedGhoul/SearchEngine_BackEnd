@@ -5,3 +5,7 @@ pydantic>=2.5.0
 pydantic-settings>=2.1.0
 python-dotenv>=1.0.0
 yt-dlp>=2024.0.0
+
+# Keyword extraction pipeline
+opencv-python==5.0.0.93
+numpy==2.4.6

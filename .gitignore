@@ -1,17 +1,38 @@
-﻿.venv/
+﻿# virtual environments
+.venv/
+.venv_asr/
+.venv_ocr/
+venv/
+env/
+
+# secrets
+.env
+*.env
+
+# python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-.env
+# media storage — downloaded videos, fingerprints, keyword job files
+media_storage/candidates/
+media_storage/fpraw/
+media_storage/keywords/
+media_storage/database/
 
+# worker logs
+*.log
+
+# pytest / type checker
 .pytest_cache/
 .mypy_cache/
 
-.idea/
-.vscode/
-
+# build artifacts
 dist/
 build/
 *.egg-info/
 
-postgres_data/
+# IDE
+.vscode/
+.idea/

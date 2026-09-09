@@ -23,7 +23,6 @@ class VideoDownloader:
         logger.info(f"VideoDownloader ready - candidates: {self.candidates_folder}")
 
     async def download_candidate(self, url: str, video_id: str, title: str) -> Path:
-        """Download video at highest quality and merge to MP4"""
         logger.info(f"Downloading: {title}")
 
         try:
@@ -35,16 +34,12 @@ class VideoDownloader:
             raise DownloadError(f"Download failed: {e}")
 
     async def _download(self, url: str, video_id: str, title: str) -> Path:
-        """Use yt-dlp to download highest quality video"""
-        
-        # Sanitize filename
         safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).strip()
-        safe_title = safe_title[:50]  # Limit length
+        safe_title = safe_title[:50]
         timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
         filename = f"{video_id}_{timestamp}.mp4"
         output_path = self.candidates_folder / filename
 
-        # Format selector: best video + best audio, merge to mp4
         format_selector = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
 
         cmd = [
